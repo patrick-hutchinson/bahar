@@ -1,5 +1,10 @@
 /* Global Styles */
 
+@font-face {
+  font-family: FuturaPassata;
+  src: url("/assets/fonts/FuturaPassata-DISPLAY.ttf");
+}
+
 :root {
   --background-color: #f4f2ed;
   --font-color: #d46943;
@@ -9,9 +14,38 @@ body {
   background: var(--background-color);
   margin: 0;
   padding: 0;
+  font-family: FuturaPassata;
+}
+
+.ss00 {
+  font-feature-settings: "ss01" 0;
+}
+.ss01 {
+  font-feature-settings: "ss01" 1;
 }
 
 a,
 a:visited {
   color: var(--font-color);
+  text-decoration: none;
+}
+
+@media (min-width: 640px) {
+  /* Small devices - Tablets */
+}
+
+@media (min-width: 768px) {
+  /* Medium devices - Laptops */
+}
+
+@media (min-width: 1024px) {
+  /* Large devices - Desktops */
+}
+
+@media (min-width: 1280px) {
+  /* Extra large screens */
+}
+
+@media (min-width: 1536px) {
+  /* 2K+ screens */
 }

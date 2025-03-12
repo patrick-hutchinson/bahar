@@ -4,7 +4,11 @@ import styles from "./Landingpage.module.css";
 export default function Landingpage() {
   return (
     <div className={styles["page-wrapper"]}>
-      <div>IN ARRIVO A MARINA DI RAGUSA UN NUOVO ORIZZONTE DI GUSTO E RELAX</div>
+      <div className={`${styles["header-text"]} ss01`}>
+        IN ARRIVO A <span className="ss00">M</span>ARINA DI RAGUSA UN NUOVO ORIZZONTE DI
+        <span className="ss00"> GU</span>
+        STO E RELAX
+      </div>
 
       <div className={styles["logo-container"]}>
         <img src="assets/logo/BAHAR_LOGO.svg" alt="" />
@@ -12,15 +16,21 @@ export default function Landingpage() {
 
       <footer>
         <div>
-          LUNGOMARE ADREA DORIA, <br />
+          LUNGOMARE ANDREA DORIA, <br />
           97010 MARINA DI RAGUSA
         </div>
 
-        <div className="socials">
+        <div className="socials ss01">
           <a href="https://www.instagram.com/bahar__marina/" target="_blank">
             IG
           </a>
-          / <a href="#">FB</a>
+          &nbsp;/&nbsp;
+          <a
+            href="https://www.facebook.com/profile.php?id=61573744333759&mibextid=wwXIfr&rdid=AzR06cyUTr4HDgWK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15q2AUYVhT%2F%3Fmibextid%3DwwXIfr"
+            target="_blank"
+          >
+            FB
+          </a>
         </div>
 
         <div>
