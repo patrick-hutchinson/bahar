@@ -1,0 +1,17 @@
+/* Global Styles */
+
+:root {
+  --background-color: #f4f2ed;
+  --font-color: #d46943;
+}
+
+body {
+  background: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited {
+  color: var(--font-color);
+}
