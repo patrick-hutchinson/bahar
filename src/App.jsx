@@ -2,10 +2,11 @@ import React from "react";
 
 import { useEffect, useState, useRef } from "react";
 import "./App.css";
-import Landingpage from "./assets/pages/Landingpage/Landingpage";
+
+import Home from "./assets/pages/Home/Home";
 
 function App() {
-  return <Landingpage />;
+  return <Home />;
 }
 
 export default App;
