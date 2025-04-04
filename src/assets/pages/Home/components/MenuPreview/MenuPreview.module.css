@@ -1,0 +1,113 @@
+.container {
+  height: 800px;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-bottom: calc(2 * var(--margin));
+}
+
+.image-container,
+.text-container {
+  display: inline-block;
+}
+.image-container {
+  position: absolute;
+  left: 0px;
+}
+.text-container {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+}
+.text-container > h1 {
+  left: 0px;
+  display: inline-block;
+  text-align: left;
+  width: fit-content;
+  max-width: 50%;
+}
+
+.text-wrapper {
+  width: fit-content;
+
+  width: min-content;
+
+  display: inline-block;
+  /* max-width: 50%; */
+}
+
+.text-wrapper h1 {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.description {
+  color: var(--black, #000);
+  font-family: "Times New Roman";
+  max-width: 50%;
+  margin: 0;
+  display: inline-block;
+
+  /* position: absolute; */
+  /* width: fit-content; */
+  font-size: 30px;
+}
+
+.information-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  max-width: 100%;
+  gap: 16px;
+}
+
+a.menu-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-subheading);
+  color: #000;
+}
+a.menu-link:visited {
+  color: #000;
+}
+
+svg {
+  width: 80px;
+}
+p.description {
+  max-width: 70%;
+}
+.titleContainer {
+  padding: 16px 0px;
+
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 16px;
+    height: auto;
+  }
+  .image-container {
+    max-height: 200px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  p.description {
+    max-width: unset;
+  }
+}

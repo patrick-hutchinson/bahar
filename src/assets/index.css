@@ -6,15 +6,43 @@
 }
 
 :root {
-  --background-color: #f4f2ed;
-  --font-color: #d46943;
+  --beige: #f4f2ed;
+  --black: #000;
+  --orange: #d46943;
+
+  --font-size-heading: 9vw;
+  --font-size-subheading: 3.78vw;
+
+  --margin: 2rem;
+}
+
+* {
+  scrollbar-width: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  scrollbar-width: none;
+  -webkit-appearance: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  width: 0;
+  height: 0;
 }
 
 body {
-  background: var(--background-color);
+  background: var(--beige);
   margin: 0;
   padding: 0;
   font-family: FuturaPassata;
+  width: 100dvw;
+  max-width: 100dvw;
+  overflow-x: hidden;
 }
 
 .ss00 {
@@ -24,10 +52,49 @@ body {
   font-feature-settings: "ss01" 1;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--font-size-heading);
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  font-size: var(--font-size-subheading);
+}
+
+.heading,
+.subheading {
+  text-align: center;
+}
+.subheading {
+  color: var(--orange);
+}
+
 a,
 a:visited {
-  color: var(--font-color);
+  color: var(--orange);
   text-decoration: none;
+}
+
+header {
+  background: var(--orange);
+  padding: 1rem;
+  max-height: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  width: 200px;
+}
+header .logo {
+  height: 100%;
 }
 
 @media (min-width: 640px) {

@@ -1,0 +1,36 @@
+h1 {
+  text-align: center;
+  color: var(--orange, #d46942);
+  position: relative;
+
+  line-height: 1;
+  padding-top: 12px;
+}
+
+.menu-title-wrapper {
+  position: relative;
+  width: 100%;
+  /* left: 1px; */
+  display: flex;
+  align-items: center; /* Centers items vertically */
+  justify-content: center;
+}
+
+.menu-title-wrapper > svg {
+  position: absolute;
+
+  z-index: 2;
+  left: 0;
+}
+
+.menu-section {
+  border-top: 8px solid var(--orange, #d46942);
+  /* display: flex; */
+  padding: 32px 0px;
+}
+
+.menu-section-content {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
