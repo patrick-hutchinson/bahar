@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import ArrowRight from "../../../../../components/elements/ArrowRight";
 
-import styles from "../MenuPreview.module.css";
+import styles from "../Servizi.module.css";
 
 export default function ImageSwipe({ text, source, index, description }) {
   const textRef = useRef();

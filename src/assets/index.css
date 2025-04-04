@@ -12,7 +12,7 @@
 
   --font-size-heading: 9vw;
   --font-size-subheading: 3.78vw;
-
+  --font-size-miniature: 1.5vw;
   --margin: 2rem;
 }
 
@@ -82,19 +82,47 @@ a:visited {
 
 header {
   background: var(--orange);
-  padding: 1rem;
-  max-height: 100px;
-  height: 100px;
+  padding: 0 1rem;
+
+  height: auto;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: var(--font-size-miniature);
 }
 header a {
   width: 200px;
 }
 header .logo {
   height: 100%;
+}
+
+header li {
+  color: var(--beige);
+}
+
+footer {
+  background: var(--orange);
+  padding: var(--margin);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: var(--font-size-miniature);
+  gap: var(--margin);
+  color: var(--beige);
+}
+footer .logo {
+  width: 200px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: row;
+  gap: var(--margin);
+}
+.footer-info .address {
+  max-width: 40%;
 }
 
 @media (min-width: 640px) {

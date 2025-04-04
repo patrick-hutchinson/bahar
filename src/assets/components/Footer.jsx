@@ -7,13 +7,17 @@ export default function Footer() {
 
   return (
     <footer>
-      {/* <img className="logo" src="/assets/logo/BAHAR_LOGO_beige.svg" alt="logo" /> */}
-      <div className="address">{data.address}</div>
+      <img className="logo" src="/assets/logo/BAHAR_LOGO_beige.svg" alt="logo" />
 
-      <div className="contact">
-        <div className="cell">{data.telephone}</div>
-        <div className="facebook">{data.facebook}</div>
-        <div className="instagram">{data.instagram}</div>
+      <div className="footer-info">
+        <div className="address">{data.address}</div>
+
+        <div className="contact">
+          <div className="cell">CELL {data.telephone}</div>
+
+          <div className="facebook">FB {data.facebook}</div>
+          <div className="instagram">IG {data.instagram}</div>
+        </div>
       </div>
     </footer>
   );

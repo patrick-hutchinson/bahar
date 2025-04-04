@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 import ArrowRight from "../../../../components/elements/ArrowRight";
 
-import styles from "./MenuPreview.module.css";
+import styles from "./Servizi.module.css";
 import ImageSwipe from "./ImageSwipe/ImageSwipe";
 
-export default function MenuPreview() {
+export default function Servizi() {
   const { data } = useContext(DataContext);
   const { isMobile } = useContext(DataContext);
 

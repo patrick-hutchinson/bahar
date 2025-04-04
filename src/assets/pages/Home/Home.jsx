@@ -6,7 +6,7 @@ import styles from "./Home.module.css";
 // Components
 import Menu from "./components/Menu/Menu";
 import Gallery from "./components/Gallery/Gallery";
-import MenuPreview from "./components/MenuPreview/MenuPreview";
+import Servizi from "./components/Servizi/Servizi";
 import ArrowRight from "../../components/elements/ArrowRight";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
       <div className={styles["text-section"]}>
         <h2>{data.introText}</h2>
       </div>
-      <MenuPreview />
+      <Servizi />
       {/* <Menu /> */}
       <Gallery />
       <div className={styles["address-container"]}>

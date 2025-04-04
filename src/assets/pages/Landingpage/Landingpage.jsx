@@ -14,7 +14,7 @@ export default function Landingpage() {
         <img src="assets/logo/BAHAR_LOGO.svg" alt="" />
       </div>
 
-      <footer>
+      <footer className={styles["landingpage-footer"]}>
         <div>
           LUNGOMARE ANDREA DORIA, <br />
           97010 MARINA DI RAGUSA
