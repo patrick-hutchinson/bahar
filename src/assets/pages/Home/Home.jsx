@@ -16,26 +16,41 @@ export default function Home() {
 
   return (
     <div>
-      <div className={styles.banner}>
+      <section className={styles["banner-container"]}>
         <h1>{data.bannerText}</h1>
-      </div>
-      <div className={styles["text-section"]}>
+      </section>
+      <section className={styles["tagline-container"]}>
         <h2>{data.introText}</h2>
-      </div>
-      <Servizi />
+      </section>
+      <section className="servizi">
+        <Servizi />
+      </section>
       {/* <Menu /> */}
-      <Gallery />
-      <div className={styles["address-container"]}>
+      <section className="gallery">
+        <Gallery />
+      </section>
+      <section className={styles["address-container"]}>
         <h2 className="subheading">TROVACI</h2>
-        <h2>LUNgOMArE AndrEA dOriA, 97010 MAriNA di rAgUSA</h2>
-      </div>
-      <div className={styles["image-container"]}>
+        <p>LUNgOMArE AndrEA dOriA, 97010 MAriNA di rAgUSA</p>
+      </section>
+      <section className={styles["image-container"]}>
         <img src="/assets/media/ac12418a1b974ec36c77647b440c51e8.jpeg" alt="" />
-      </div>
-      <a href="#" className={styles["menu-link"]}>
-        <ArrowRight color="#f00" />
-        <span>INDICAZIONI</span>
-      </a>
+      </section>
+      <section className={`${styles["contact-container"]} contatti`}>
+        <a href="#" className="arrow-link">
+          <ArrowRight color="#D46942" />
+          <span>INDICAZIONI</span>
+        </a>
+
+        <div className={styles.contact}>
+          <h2 className="subheading">CONTATTI</h2>
+          <div className={styles["contact-details"]}>
+            <div>CELL {data.telephone}</div>
+            <div>FB {data.facebook}</div>
+            <div>IG {data.instagram}</div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

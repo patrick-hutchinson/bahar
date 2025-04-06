@@ -13,6 +13,12 @@ export const menu = defineType({
     }),
 
     defineField({
+      name: 'pdf',
+      title: 'PDF',
+      type: 'file',
+    }),
+
+    defineField({
       name: 'items',
       title: 'Items',
       type: 'array',

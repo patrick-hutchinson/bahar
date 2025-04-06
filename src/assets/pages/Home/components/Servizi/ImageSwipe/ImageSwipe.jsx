@@ -112,7 +112,7 @@ export default function ImageSwipe({ text, source, index, description }) {
         viewport={{ margin: "-200px 0px -100px 0px" }}
       >
         <motion.div ref={imageRef} className={styles["image-container"]} variants={imageVariants}>
-          <img src={source} alt="" />
+          <img src={source.src} alt="" />
         </motion.div>
 
         <motion.div ref={textRef} className={styles["text-wrapper"]} variants={textVariants}>
@@ -120,7 +120,7 @@ export default function ImageSwipe({ text, source, index, description }) {
 
           <div className={styles["information-wrapper"]}>
             <p className={styles.description}>{description}</p>
-            <Link to="/menu" className={styles["menu-link"]}>
+            <Link to="/menu" className="arrow-link">
               <ArrowRight color="#D46942" />
               <span> VAI AL MENU</span>
             </Link>

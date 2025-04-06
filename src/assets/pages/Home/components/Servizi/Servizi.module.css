@@ -63,23 +63,17 @@
   gap: 16px;
 }
 
-a.menu-link {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  font-size: var(--font-size-subheading);
-  color: #000;
-}
-a.menu-link:visited {
-  color: #000;
-}
-
 svg {
   width: 80px;
 }
 p.description {
   max-width: 70%;
+  font-family: "STIX Two Text", serif;
+  font-size: var(--p);
+}
+.servizi-text {
+  padding: var(--margin);
+  padding-top: calc(var(--margin) / 4);
 }
 .titleContainer {
   padding: 16px 0px;
@@ -96,7 +90,7 @@ p.description {
     height: auto;
   }
   .image-container {
-    max-height: 200px;
+    max-height: 300px;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -109,5 +103,8 @@ p.description {
   }
   p.description {
     max-width: unset;
+  }
+  svg {
+    width: 50px;
   }
 }

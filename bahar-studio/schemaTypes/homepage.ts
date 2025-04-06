@@ -7,8 +7,12 @@ export const homepage = defineType({
 
   fields: [
     defineField({name: 'bannerImage', title: 'Banner Image', type: 'image'}),
-    defineField({name: 'bannerText', title: 'Banner Text', type: 'string'}),
-    defineField({name: 'introText', title: 'Introduction Text', type: 'text'}),
+    defineField({name: 'bannerText', title: 'Banner Text', type: 'internationalizedArrayString'}),
+    defineField({
+      name: 'introText',
+      title: 'Introduction Text',
+      type: 'internationalizedArrayString',
+    }),
     defineField({
       name: 'sections',
       title: 'Sections',

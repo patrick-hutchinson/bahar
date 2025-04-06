@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { DataContext } from "../../../../context/DataContext";
 
+import { getFileSource } from "../../../../utils/getFileSource";
+
 import { Link } from "react-router-dom";
 
 import ArrowRight from "../../../../components/elements/ArrowRight";
@@ -19,7 +21,7 @@ export default function Servizi() {
       <ImageSwipe
         key={index}
         text={section.sectionTitle}
-        source="/assets/media/ac12418a1b974ec36c77647b440c51e8.jpeg"
+        source={getFileSource(section.sectionImage)}
         index={index}
         description={section.sectionDescription}
       />
@@ -27,15 +29,17 @@ export default function Servizi() {
       <div className={styles.container} key={index}>
         <h1>{section.sectionTitle}</h1>
         <div className={styles["image-container"]}>
-          <img src="/assets/media/ac12418a1b974ec36c77647b440c51e8.jpeg" alt="" />
+          <img src={getFileSource(section.sectionImage).src} alt="" />
         </div>
 
-        <p className={styles.description}>{section.sectionDescription}</p>
+        <div className={styles["servizi-text"]}>
+          <p className={styles.description}>{section.sectionDescription}</p>
 
-        <Link to="/menu" className={styles["menu-link"]}>
-          <ArrowRight color="#f00" />
-          <span> VAI AL MENU</span>
-        </Link>
+          <Link to="/menu" className="arrow-link">
+            <ArrowRight color="#D46942" />
+            <Link to="/menu"> VAI AL MENU</Link>
+          </Link>
+        </div>
       </div>
     );
   });
