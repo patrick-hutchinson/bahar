@@ -42,8 +42,5 @@ export default function Menu() {
         ))}
       </Document>
     </div>
-    // <div>
-    //   <iframe src="/assets/media/menu.pdf#toolbar=0&view=FitH" width="100%" height="100%"></iframe>
-    // </div>
   );
 }
