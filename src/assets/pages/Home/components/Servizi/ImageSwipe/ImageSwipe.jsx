@@ -34,6 +34,8 @@ export default function ImageSwipe({ text, source, index, description }) {
     window.addEventListener("resize", handleResize);
     updateSizes(); // Initial calculation
 
+    console.log(windowWidth, "windowWidth");
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
