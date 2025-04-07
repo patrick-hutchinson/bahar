@@ -48,6 +48,7 @@
 .text-wrapper h1 {
   text-align: left;
   white-space: nowrap;
+  color: var(--orange) !important;
 }
 
 .description {

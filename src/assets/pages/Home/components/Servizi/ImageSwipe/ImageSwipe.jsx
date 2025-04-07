@@ -53,10 +53,6 @@ export default function ImageSwipe({ text, source, index, description }) {
       x: isEven ? -textWidth + windowWidth - imageWidth - 40 : windowWidth - (windowWidth - textWidth) + 40,
       transition: transitionSpeed,
     },
-    exit: {
-      x: isEven ? -790 : windowWidth - 10,
-      transition: transitionSpeed,
-    },
   };
 
   const textVariants = {
