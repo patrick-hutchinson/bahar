@@ -17,6 +17,11 @@
 .image-container {
   position: absolute;
   left: 0px;
+  height: 800px;
+}
+.image-container img {
+  height: 100%;
+  width: auto;
 }
 .text-container {
   position: absolute;
