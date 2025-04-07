@@ -29,13 +29,13 @@ export default function ImageSwipe({ text, source, index, description }) {
   useEffect(() => {
     function handleResize() {
       updateSizes();
+      console.log(textWidth, "textWidth");
     }
 
     window.addEventListener("resize", handleResize);
     updateSizes(); // Initial calculation
 
     console.log(windowWidth, "windowWidth");
-    console.log(textWidth, "textWidth");
 
     return () => {
       window.removeEventListener("resize", handleResize);
