@@ -13,7 +13,7 @@ export default function Gallery() {
   const galleryRef = useRef();
   function handlePan(direction) {
     const gallery = galleryRef.current;
-    const scrollAmount = 500;
+    const scrollAmount = 800;
 
     if (!gallery) return;
 
