@@ -206,7 +206,8 @@ iframe {
     right: 30px;
   }
 
-  .mobileMenu button {
+  .mobileMenu button,
+  .mobileMenu .lang {
     font-size: var(--h1);
     padding: 10px;
     color: var(--beige);

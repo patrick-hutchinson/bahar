@@ -15,16 +15,19 @@ export default function Home() {
 
   if (!data) return <p>Loading...</p>;
 
-  const bannerTextObject = data.bannerText.find((item) => item._key === language);
-  const introText = data.introText.find((item) => item._key === language);
+  function findTranslation(object) {
+    let translation = object.find((item) => item._key === language);
+
+    return translation.value;
+  }
 
   return (
     <div>
       <section className={styles["banner-container"]}>
-        <h1>{bannerTextObject ? bannerTextObject.value : "Error"}</h1>
+        <h1>{findTranslation(data.bannerText)}</h1>
       </section>
       <section className={styles["tagline-container"]}>
-        <h2>{introText ? introText.value : "Error"}</h2>
+        <h2>{findTranslation(data.introText)}</h2>
       </section>
       <section className="servizi" id="servizi">
         <Servizi />
@@ -50,8 +53,15 @@ export default function Home() {
           <h2 className="subheading">CONTATTI</h2>
           <div className={styles["contact-details"]}>
             <div>CELL {data.telephone}</div>
-            <div>FB {data.facebook}</div>
-            <div>IG {data.instagram}</div>
+            <a
+              href="https://www.facebook.com/profile.php?id=61573744333759&mibextid=wwXIfr&rdid=AzR06cyUTr4HDgWK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15q2AUYVhT%2F%3Fmibextid%3DwwXIfr"
+              target="_blank"
+            >
+              FB {data.facebook}
+            </a>
+            <a href={`https://www.instagram.com/${data.instagram}`} target="_blank">
+              IG {data.instagram}
+            </a>
           </div>
         </div>
       </section>

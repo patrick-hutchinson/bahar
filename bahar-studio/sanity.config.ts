@@ -30,7 +30,7 @@ export default defineConfig({
         {id: 'en', title: 'English'},
       ],
       defaultLanguages: ['it'],
-      documentTypes: ['menu, homepage'],
+      documentTypes: ['menu, homepage, setup'],
       filterField: (enclosingType, member, selectedLanguageIds) => {
         if (
           enclosingType.jsonType === 'object' &&

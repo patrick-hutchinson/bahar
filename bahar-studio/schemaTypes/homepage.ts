@@ -6,6 +6,11 @@ export const homepage = defineType({
   type: 'document',
 
   fields: [
+    defineField({
+      name: 'pageTitle',
+      title: 'Page Title',
+      type: 'string',
+    }),
     defineField({name: 'bannerImage', title: 'Banner Image', type: 'image'}),
     defineField({name: 'bannerText', title: 'Banner Text', type: 'internationalizedArrayString'}),
     defineField({
@@ -22,8 +27,12 @@ export const homepage = defineType({
           type: 'object',
           title: 'Section Title',
           fields: [
-            {name: 'sectionTitle', title: 'Section Title', type: 'string'},
-            {name: 'sectionDescription', title: 'Section Description', type: 'text'},
+            {name: 'sectionTitle', title: 'Section Title', type: 'internationalizedArrayString'},
+            {
+              name: 'sectionDescription',
+              title: 'Section Description',
+              type: 'internationalizedArrayString',
+            },
             {name: 'sectionImage', title: 'Section Image', type: 'image'},
           ],
         },

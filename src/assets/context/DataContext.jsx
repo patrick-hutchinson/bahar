@@ -5,6 +5,7 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState();
+  const [page, setPage] = useState();
   const [language, setLanguage] = useState("it");
   const [isMobile, setIsMobile] = useState(false);
 
@@ -41,5 +42,7 @@ export const DataProvider = ({ children }) => {
       .catch(console.error);
   }, []);
 
-  return <DataContext.Provider value={{ data, isMobile, language, setLanguage }}>{children}</DataContext.Provider>;
+  return (
+    <DataContext.Provider value={{ data, isMobile, language, setLanguage, page }}>{children}</DataContext.Provider>
+  );
 };

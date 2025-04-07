@@ -88,7 +88,7 @@ export default function Layout() {
         </ul>
 
         <div className="lang">
-          <button>ITA</button>/<button>ENG</button>
+          <button onClick={() => setLanguage("it")}>ITA</button>/<button onClick={() => setLanguage("en")}>ENG</button>
         </div>
       </motion.div>
     );

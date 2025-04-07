@@ -13,27 +13,33 @@ import ImageSwipe from "./ImageSwipe/ImageSwipe";
 export default function Servizi() {
   const { data } = useContext(DataContext);
   const { isMobile } = useContext(DataContext);
+  const { language } = useContext(DataContext);
 
   if (!data) return <p>Loading...</p>;
+
+  function findTranslation(object) {
+    let translation = object.find((item) => item._key === language);
+    return translation.value;
+  }
 
   return data.sections.map((section, index) => {
     return !isMobile ? (
       <ImageSwipe
         key={index}
-        text={section.sectionTitle}
+        text={findTranslation(section.sectionTitle)}
         source={getFileSource(section.sectionImage)}
         index={index}
-        description={section.sectionDescription}
+        description={findTranslation(section.sectionDescription)}
       />
     ) : (
       <div className={styles.container} key={index}>
-        <h1>{section.sectionTitle}</h1>
+        <h1>{findTranslation(section.sectionTitle)}</h1>
         <div className={styles["image-container"]}>
           <img src={getFileSource(section.sectionImage).src} alt="" />
         </div>
 
         <div className={styles["servizi-text"]}>
-          <p className={styles.description}>{section.sectionDescription}</p>
+          <p className={styles.description}>{getFileSource(section.sectionTitle)}</p>
 
           <Link to="/menu" className="arrow-link">
             <ArrowRight color="#D46942" />

@@ -1,14 +1,28 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
+import sanityClient from "/src/client.js";
 
 export default function Header() {
   const navigate = useNavigate();
   const { isMobile } = useContext(DataContext);
+  const [page, setPage] = useState();
   const { language, setLanguage } = useContext(DataContext);
   const location = useLocation();
 
   const [menuItem, setMenuItem] = useState("");
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type=="setup"]{
+        navigationMenu,
+          menuButton,  
+      }`
+      )
+      .then((page) => setPage(page[0]))
+      .catch(console.error);
+  }, []);
 
   // Scroll to section when the route changes
   useEffect(() => {
@@ -21,26 +35,33 @@ export default function Header() {
   }, [location, menuItem]); // Depend on location and menuItem
 
   function handleMenu(e) {
-    const selectedMenuItem = e.currentTarget.innerText.toLowerCase();
-    setMenuItem(selectedMenuItem);
+    console.log(e.currentTarget.getAttribute("tag"), "tag");
+    const sectionTag = e.currentTarget.getAttribute("tag");
+    // const selectedMenuItem = e.currentTarget.innerText.toLowerCase();
+    setMenuItem(sectionTag);
     navigate("/"); // Navigate to homepage
   }
 
-  const handleLanguageChange = (lang) => {
-    localStorage.setItem("selectedLanguage", lang);
-    setLanguage(lang);
-  };
+  useEffect(() => {
+    console.log(page, "page");
+  }, [page]);
 
   return (
     <header>
       {!isMobile && (
         <ul>
-          <li onClick={handleMenu}>SERVIZI</li>
-          <Link onClick={handleMenu} to="/menu">
+          <li tag="servizi" onClick={handleMenu}>
+            SERVIZI
+          </li>
+          <Link tag="menu" onClick={handleMenu} to="/menu">
             MENU
           </Link>
-          <li onClick={handleMenu}>GALLERY</li>
-          <li onClick={handleMenu}>CONTATTI</li>
+          <li tag="gallery" onClick={handleMenu}>
+            GALLERY
+          </li>
+          <li tag="contatti" onClick={handleMenu}>
+            CONTATTI
+          </li>
         </ul>
       )}
       <Link to="/">
@@ -49,8 +70,7 @@ export default function Header() {
 
       {!isMobile && (
         <div className="lang">
-          <button onClick={() => handleLanguageChange("it")}>ITA</button>
-          <button onClick={() => handleLanguageChange("en")}>ENG</button>
+          <button onClick={() => setLanguage("it")}>ITA</button>/<button onClick={() => setLanguage("en")}>ENG</button>
         </div>
       )}
     </header>
