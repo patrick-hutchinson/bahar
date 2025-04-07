@@ -5,6 +5,7 @@ import { DataContext } from "../context/DataContext";
 export default function Header() {
   const navigate = useNavigate();
   const { isMobile } = useContext(DataContext);
+  const { language, setLanguage } = useContext(DataContext);
   const location = useLocation();
 
   const [menuItem, setMenuItem] = useState("");
@@ -25,6 +26,11 @@ export default function Header() {
     navigate("/"); // Navigate to homepage
   }
 
+  const handleLanguageChange = (lang) => {
+    localStorage.setItem("selectedLanguage", lang);
+    setLanguage(lang);
+  };
+
   return (
     <header>
       {!isMobile && (
@@ -43,7 +49,8 @@ export default function Header() {
 
       {!isMobile && (
         <div className="lang">
-          <button>ITA</button>/<button>ENG</button>
+          <button onClick={() => handleLanguageChange("it")}>ITA</button>
+          <button onClick={() => handleLanguageChange("en")}>ENG</button>
         </div>
       )}
     </header>

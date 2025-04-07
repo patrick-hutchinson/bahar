@@ -10,17 +10,21 @@ import Servizi from "./components/Servizi/Servizi";
 import ArrowRight from "../../components/elements/ArrowRight";
 
 export default function Home() {
+  const { language } = useContext(DataContext);
   const { data } = useContext(DataContext);
 
   if (!data) return <p>Loading...</p>;
 
+  const bannerTextObject = data.bannerText.find((item) => item._key === language);
+  const introText = data.introText.find((item) => item._key === language);
+
   return (
     <div>
       <section className={styles["banner-container"]}>
-        <h1>{data.bannerText}</h1>
+        <h1>{bannerTextObject ? bannerTextObject.value : "Error"}</h1>
       </section>
       <section className={styles["tagline-container"]}>
-        <h2>{data.introText}</h2>
+        <h2>{introText ? introText.value : "Error"}</h2>
       </section>
       <section className="servizi" id="servizi">
         <Servizi />
