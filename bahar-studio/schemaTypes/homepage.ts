@@ -49,6 +49,7 @@ export const homepage = defineType({
         layout: 'grid', // The grid layout is maintained
       },
     }),
+    defineField({name: 'closingImage', title: 'Closing Image', type: 'image'}),
     defineField({name: 'address', title: 'Address', type: 'text'}),
     defineField({name: 'telephone', title: 'Telephone', type: 'string'}),
     defineField({name: 'facebook', title: 'Facebook', type: 'string'}),

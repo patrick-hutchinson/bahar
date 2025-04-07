@@ -22,6 +22,9 @@ export default function Home() {
     return translation.value;
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <section className={styles["banner-container"]}>
