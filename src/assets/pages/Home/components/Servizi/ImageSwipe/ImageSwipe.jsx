@@ -120,10 +120,10 @@ export default function ImageSwipe({ text, source, index, description }) {
 
           <div className={styles["information-wrapper"]}>
             <p className={styles.description}>{description}</p>
-            <Link to="/menu" className="arrow-link">
+            {/* <Link to="/menu" className="arrow-link">
               <ArrowRight color="#D46942" />
               <span> VAI AL MENU</span>
-            </Link>
+            </Link> */}
           </div>
         </motion.div>
       </motion.div>

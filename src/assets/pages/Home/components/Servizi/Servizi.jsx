@@ -41,10 +41,10 @@ export default function Servizi() {
         <div className={styles["servizi-text"]}>
           <p className={styles.description}>{getFileSource(section.sectionTitle)}</p>
 
-          <Link to="/menu" className="arrow-link">
+          {/* <Link to="/menu" className="arrow-link">
             <ArrowRight color="#D46942" />
             <Link to="/menu"> VAI AL MENU</Link>
-          </Link>
+          </Link> */}
         </div>
       </div>
     );

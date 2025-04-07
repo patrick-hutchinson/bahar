@@ -80,9 +80,9 @@ export default function Layout() {
         </div>
         <ul>
           <li onClick={handleMenu}>SERVIZI</li>
-          <Link onClick={handleMenu} to="/menu">
+          {/* <Link onClick={handleMenu} to="/menu">
             MENU
-          </Link>
+          </Link> */}
           <li onClick={handleMenu}>GALLERY</li>
           <li onClick={handleMenu}>CONTATTI</li>
         </ul>

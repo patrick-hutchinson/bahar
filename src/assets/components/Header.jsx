@@ -53,9 +53,9 @@ export default function Header() {
           <li tag="servizi" onClick={handleMenu}>
             SERVIZI
           </li>
-          <Link tag="menu" onClick={handleMenu} to="/menu">
+          {/* <Link tag="menu" onClick={handleMenu} to="/menu">
             MENU
-          </Link>
+          </Link> */}
           <li tag="gallery" onClick={handleMenu}>
             GALLERY
           </li>
