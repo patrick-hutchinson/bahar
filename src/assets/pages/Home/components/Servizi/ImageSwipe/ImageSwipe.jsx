@@ -27,15 +27,16 @@ export default function ImageSwipe({ text, source, index, description }) {
   };
 
   useEffect(() => {
+    console.log(textWidth, "textWidth");
+  }, [textWidth]);
+
+  useEffect(() => {
     function handleResize() {
       updateSizes();
-      console.log(textWidth, "textWidth");
     }
 
     window.addEventListener("resize", handleResize);
     updateSizes(); // Initial calculation
-
-    console.log(windowWidth, "windowWidth");
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -43,8 +44,12 @@ export default function ImageSwipe({ text, source, index, description }) {
   }, []);
 
   useEffect(() => {
-    setTextWidth(textRef.current.getBoundingClientRect().width);
-    setImageWidth(800);
+    requestAnimationFrame(() => {
+      if (textRef.current) {
+        setTextWidth(textRef.current.getBoundingClientRect().width);
+        setImageWidth(800);
+      }
+    });
   }, []);
 
   const imageVariants = {
