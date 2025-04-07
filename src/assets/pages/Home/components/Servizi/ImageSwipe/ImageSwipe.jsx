@@ -14,7 +14,7 @@ export default function ImageSwipe({ text, source, index, description }) {
   let [textWidth, setTextWidth] = useState(0);
   let [imageWidth, setImageWidth] = useState(0);
 
-  let [isEven, setIsEven] = useState(index % 2 == 0);
+  let isEven = index % 2 == 0;
 
   const transitionSpeed = { duration: 1, ease: [0.6, -0.05, 0.01, 0.99] };
 
@@ -41,7 +41,7 @@ export default function ImageSwipe({ text, source, index, description }) {
 
   useEffect(() => {
     setTextWidth(textRef.current.getBoundingClientRect().width);
-    setImageWidth(imageRef.current.getBoundingClientRect().width);
+    setImageWidth(1700);
   }, []);
 
   const imageVariants = {

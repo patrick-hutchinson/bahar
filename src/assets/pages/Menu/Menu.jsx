@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import { Document, Page } from "react-pdf";
-import { pdfjs } from "react-pdf";
-
-// Set the path for the worker
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@2.10.377/es5/build/pdf.worker.min.js`;
 
 import sanityClient from "/src/client.js";
 
@@ -35,12 +31,19 @@ export default function Menu() {
   }
 
   return (
+    // <div>
+    //   <Document file="/assets/media/menu.pdf">
+    //     {Array.from(new Array(numPages), (el, index) => (
+    //       <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+    //     ))}
+    //   </Document>
+    // </div>
     <div>
-      <Document file="/assets/media/menu.pdf">
-        {Array.from(new Array(numPages), (el, index) => (
-          <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-        ))}
-      </Document>
+      <iframe
+        src={`https://docs.google.com/viewer?url=${getFileSource(menu.pdf).src}&embedded=true`}
+        width="100%"
+        height="100%"
+      ></iframe>
     </div>
   );
 }
