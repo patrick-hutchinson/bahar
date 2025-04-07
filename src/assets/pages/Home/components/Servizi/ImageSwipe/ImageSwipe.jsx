@@ -8,17 +8,12 @@ export default function ImageSwipe({ text, source, index, description }) {
   const imageRef = useRef();
 
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  let [textWidth, setTextWidth] = useState();
+  let [textWidth, setTextWidth] = useState(0);
   let [imageWidth, setImageWidth] = useState(800);
 
-  let isEven = index % 2 == 0;
+  let isEven = index % 2 === 0;
 
   const transitionSpeed = { duration: 1, ease: [0.6, -0.05, 0.01, 0.99] };
-
-  useEffect(() => {
-    setTextWidth(textRef.current.getBoundingClientRect().width);
-    console.log("updated");
-  }, [textRef.current]);
 
   const updateSizes = () => {
     if (textRef.current && imageRef.current) {
@@ -29,8 +24,8 @@ export default function ImageSwipe({ text, source, index, description }) {
   };
 
   useEffect(() => {
-    console.log(textWidth, "textWidth");
-  }, [textWidth]);
+    updateSizes(); // Initial calculation
+  }, []);
 
   useEffect(() => {
     function handleResize() {
@@ -38,21 +33,14 @@ export default function ImageSwipe({ text, source, index, description }) {
     }
 
     window.addEventListener("resize", handleResize);
-    updateSizes(); // Initial calculation
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   useEffect(() => {
-    requestAnimationFrame(() => {
-      if (textRef.current) {
-        setTextWidth(textRef.current.getBoundingClientRect().width);
-        setImageWidth(800);
-      }
-    });
-  }, []);
+    console.log(textWidth, "textWidth");
+  }, [textWidth]);
 
   const imageVariants = {
     initial: {
@@ -88,23 +76,17 @@ export default function ImageSwipe({ text, source, index, description }) {
 
     words.forEach((word, index) => {
       if (currentLength + word.length + (currentLine ? 1 : 0) <= 11) {
-        // Append word to the current line (with space if not first word)
         currentLine += (currentLine ? " " : "") + word;
         currentLength += word.length + (currentLine ? 1 : 0);
       } else {
-        // Push the current line to the result
         if (currentLine) result.push(currentLine);
-
-        // Start a new line with the current word
         currentLine = word;
         currentLength = word.length;
       }
     });
 
-    // Push the last accumulated line
     if (currentLine) result.push(currentLine);
 
-    // Return the formatted JSX
     return result.map((line, index) => <h1 key={index}>{line}</h1>);
   }
 
@@ -126,10 +108,6 @@ export default function ImageSwipe({ text, source, index, description }) {
 
           <div className={styles["information-wrapper"]}>
             <p className={styles.description}>{description}</p>
-            {/* <Link to="/menu" className="arrow-link">
-              <ArrowRight color="#D46942" />
-              <span> VAI AL MENU</span>
-            </Link> */}
           </div>
         </motion.div>
       </motion.div>
