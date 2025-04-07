@@ -1,26 +1,40 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
 
 export default function Header() {
+  const navigate = useNavigate();
   const { isMobile } = useContext(DataContext);
-  function handleMenu(e) {
-    let menuItem = e.currentTarget.innerText.toLowerCase();
-    let targetSection = document.querySelector(`section.${menuItem}`);
+  const location = useLocation();
 
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
+  const [menuItem, setMenuItem] = useState("");
+
+  // Scroll to section when the route changes
+  useEffect(() => {
+    if (menuItem) {
+      let targetSection = document.querySelector(`section.${menuItem}`);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
     }
+  }, [location, menuItem]); // Depend on location and menuItem
+
+  function handleMenu(e) {
+    const selectedMenuItem = e.currentTarget.innerText.toLowerCase();
+    setMenuItem(selectedMenuItem);
+    navigate("/"); // Navigate to homepage
   }
 
   return (
     <header>
       {!isMobile && (
         <ul>
-          <li onClick={(e) => handleMenu(e)}>SERVIZI</li>
-          {/* <li onClick={()=>handleMenu()}>MENU</li> */}
-          <li onClick={(e) => handleMenu(e)}>GALLERY</li>
-          <li onClick={(e) => handleMenu(e)}>CONTATTI</li>
+          <li onClick={handleMenu}>SERVIZI</li>
+          <Link onClick={handleMenu} to="/menu">
+            MENU
+          </Link>
+          <li onClick={handleMenu}>GALLERY</li>
+          <li onClick={handleMenu}>CONTATTI</li>
         </ul>
       )}
       <Link to="/">
@@ -29,7 +43,7 @@ export default function Header() {
 
       {!isMobile && (
         <div className="lang">
-          <button href="">ITA</button>/<button href="">ENG</button>
+          <button>ITA</button>/<button>ENG</button>
         </div>
       )}
     </header>

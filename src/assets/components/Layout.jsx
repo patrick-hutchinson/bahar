@@ -1,16 +1,20 @@
-import React, { useState, useContext } from "react";
-import { Outlet } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import MenuButton from "./elements/MenuButton";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
 import { DataContext } from "../context/DataContext";
 
 export default function Layout() {
+  const navigate = useNavigate();
   const { isMobile } = useContext(DataContext);
+  const location = useLocation();
+
+  const [menuItem, setMenuItem] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const transitionSpeed = { duration: 1, ease: [0.6, -0.05, 0.01, 0.99] };
@@ -29,13 +33,19 @@ export default function Layout() {
   function handleMenu(e) {
     setMenuOpen(false);
 
-    let menuItem = e.currentTarget.innerText.toLowerCase();
-    let targetSection = document.querySelector(`section.${menuItem}`);
-
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    }
+    const selectedMenuItem = e.currentTarget.innerText.toLowerCase();
+    setMenuItem(selectedMenuItem);
+    navigate("/"); // Navigate to homepage
   }
+
+  useEffect(() => {
+    if (menuItem) {
+      let targetSection = document.querySelector(`section.${menuItem}`);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth", top: 50 });
+      }
+    }
+  }, [location, menuItem]); // Depend on location and menuItem
 
   const MobileMenuButton = () => {
     return (
@@ -70,6 +80,9 @@ export default function Layout() {
         </div>
         <ul>
           <li onClick={handleMenu}>SERVIZI</li>
+          <Link onClick={handleMenu} to="/menu">
+            MENU
+          </Link>
           <li onClick={handleMenu}>GALLERY</li>
           <li onClick={handleMenu}>CONTATTI</li>
         </ul>

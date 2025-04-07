@@ -100,7 +100,9 @@ header .logo {
   height: 100%;
 }
 
-header li {
+header li,
+header a,
+header a:visited {
   color: var(--beige);
 }
 
@@ -194,7 +196,7 @@ iframe {
     justify-content: center;
     font-size: var(--h1);
     color: var(--beige);
-
+    z-index: 1000;
     /* position: relative; */
   }
 
@@ -222,6 +224,12 @@ iframe {
     justify-content: center;
     box-sizing: border-box;
     padding: 15px;
+  }
+
+  .mobileMenu li,
+  .mobileMenu a,
+  .mobileMenu a:visited {
+    color: var(--beige);
   }
 }
 

@@ -22,11 +22,11 @@ export default function Home() {
       <section className={styles["tagline-container"]}>
         <h2>{data.introText}</h2>
       </section>
-      <section className="servizi">
+      <section className="servizi" id="servizi">
         <Servizi />
       </section>
       {/* <Menu /> */}
-      <section className="gallery">
+      <section className="gallery" id="gallery">
         <Gallery />
       </section>
       <section className={styles["address-container"]}>
