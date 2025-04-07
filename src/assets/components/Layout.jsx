@@ -13,7 +13,7 @@ export default function Layout() {
   const navigate = useNavigate();
   const { isMobile } = useContext(DataContext);
   const location = useLocation();
-
+  const { language, setLanguage } = useContext(DataContext);
   const [menuItem, setMenuItem] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -88,7 +88,23 @@ export default function Layout() {
         </ul>
 
         <div className="lang">
-          <button onClick={() => setLanguage("it")}>ITA</button>/<button onClick={() => setLanguage("en")}>ENG</button>
+          <button
+            onClick={() => {
+              setLanguage("it");
+              setMenuOpen(false);
+            }}
+          >
+            ITA
+          </button>
+          /
+          <button
+            onClick={() => {
+              setLanguage("en");
+              setMenuOpen(false);
+            }}
+          >
+            ENG
+          </button>
         </div>
       </motion.div>
     );
