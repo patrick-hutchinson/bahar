@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { Link } from "react-router-dom";
-import ArrowRight from "../../../../../components/elements/ArrowRight";
-
 import styles from "../Servizi.module.css";
 
 export default function ImageSwipe({ text, source, index, description }) {
@@ -11,12 +8,17 @@ export default function ImageSwipe({ text, source, index, description }) {
   const imageRef = useRef();
 
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  let [textWidth, setTextWidth] = useState(0);
-  let [imageWidth, setImageWidth] = useState(0);
+  let [textWidth, setTextWidth] = useState();
+  let [imageWidth, setImageWidth] = useState(800);
 
   let isEven = index % 2 == 0;
 
   const transitionSpeed = { duration: 1, ease: [0.6, -0.05, 0.01, 0.99] };
+
+  useEffect(() => {
+    setTextWidth(textRef.current.getBoundingClientRect().width);
+    console.log("updated");
+  }, [textRef.current]);
 
   const updateSizes = () => {
     if (textRef.current && imageRef.current) {
