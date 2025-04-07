@@ -92,6 +92,9 @@ header {
   align-items: center;
   justify-content: space-between;
   font-size: var(--h3);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 header a {
   width: 200px;
@@ -163,6 +166,11 @@ iframe {
   background-color: #fff;
   margin: 0;
   padding: 0;
+}
+
+footer a,
+footer a:visited {
+  color: var(--beige);
 }
 
 @media (max-width: 768px) {

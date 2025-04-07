@@ -8,6 +8,7 @@ import Menu from "./components/Menu/Menu";
 import Gallery from "./components/Gallery/Gallery";
 import Servizi from "./components/Servizi/Servizi";
 import ArrowRight from "../../components/elements/ArrowRight";
+import { getFileSource } from "../../utils/getFileSource";
 
 export default function Home() {
   const { language } = useContext(DataContext);
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <div>
       <section className={styles["banner-container"]}>
+        <img className={styles["banner-image"]} src={getFileSource(data.bannerImage).src} alt="" />
         <h1>{findTranslation(data.bannerText)}</h1>
       </section>
       <section className={styles["tagline-container"]}>
