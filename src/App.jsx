@@ -18,8 +18,8 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="menu" element={<Menu />} />
           </Route>
+          <Route path="menu" element={<Menu />} />
         </Routes>
       </BrowserRouter>
     </DataProvider>
