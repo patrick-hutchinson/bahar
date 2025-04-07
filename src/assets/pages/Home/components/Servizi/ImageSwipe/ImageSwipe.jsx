@@ -7,6 +7,7 @@ export default function ImageSwipe({ text, source, index, description }) {
   const textRef = useRef();
   const imageRef = useRef();
 
+  let [updatedText, setUpdatedText] = useState(0);
   let [windowWidth, setWindowWidth] = useState(window.innerWidth);
   let [textWidth, setTextWidth] = useState();
   let [imageWidth, setImageWidth] = useState(800);
@@ -29,10 +30,6 @@ export default function ImageSwipe({ text, source, index, description }) {
   };
 
   useEffect(() => {
-    console.log(textWidth, "textWidth");
-  }, [textWidth]);
-
-  useEffect(() => {
     function handleResize() {
       updateSizes();
     }
@@ -46,13 +43,11 @@ export default function ImageSwipe({ text, source, index, description }) {
   }, []);
 
   useEffect(() => {
-    requestAnimationFrame(() => {
-      if (textRef.current) {
-        setTextWidth(textRef.current.getBoundingClientRect().width);
-        setImageWidth(800);
-      }
-    });
-  }, []);
+    if (textRef.current) {
+      setTextWidth(textRef.current.getBoundingClientRect().width);
+      setImageWidth(800);
+    }
+  }, [updatedText]);
 
   const imageVariants = {
     initial: {
@@ -106,6 +101,7 @@ export default function ImageSwipe({ text, source, index, description }) {
 
     // Return the formatted JSX
     return result.map((line, index) => <h1 key={index}>{line}</h1>);
+    setUpdatedText((prevUpdatedText) => prevUpdatedText + 1);
   }
 
   return (
