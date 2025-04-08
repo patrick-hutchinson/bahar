@@ -97,7 +97,7 @@ p.description {
     height: auto;
   }
   .image-container {
-    max-height: 300px;
+    max-height: 400px;
     position: relative;
     overflow: hidden;
     width: 100%;
