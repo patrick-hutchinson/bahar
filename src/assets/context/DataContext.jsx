@@ -35,7 +35,6 @@ export const DataProvider = ({ children }) => {
         telephone,
         instagram,
         facebook,
-  
     }`
       )
       .then((data) => setData(data[0]))

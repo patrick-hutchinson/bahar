@@ -34,6 +34,12 @@ export const homepage = defineType({
               type: 'internationalizedArrayString',
             },
             {name: 'sectionImage', title: 'Section Image', type: 'image'},
+            {
+              name: 'showOnHomepage',
+              title: 'Show on Homepage',
+              type: 'boolean',
+              initialValue: true,
+            },
           ],
         },
       ],

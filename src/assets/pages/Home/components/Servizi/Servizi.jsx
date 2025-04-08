@@ -23,6 +23,8 @@ export default function Servizi() {
   }
 
   return data.sections.map((section, index) => {
+    if (!section.showOnHomepage) return null;
+
     return !isMobile ? (
       <ImageSwipe
         key={index}
@@ -39,12 +41,7 @@ export default function Servizi() {
         </div>
 
         <div className={styles["servizi-text"]}>
-          <p className={styles.description}>{getFileSource(section.sectionTitle)}</p>
-
-          {/* <Link to="/menu" className="arrow-link">
-            <ArrowRight color="#D46942" />
-            <Link to="/menu"> VAI AL MENU</Link>
-          </Link> */}
+          <p className={styles.description}>{findTranslation(section.sectionDescription)}</p>
         </div>
       </div>
     );
