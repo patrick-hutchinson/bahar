@@ -13,18 +13,25 @@ export default function Footer() {
         <div className="address">{data.address}</div>
 
         <div className="contact">
-          <div className="cell">CELL {data.telephone}</div>
+          <div className="contact-item-wrapper">
+            <div>CELL</div> <div>{data.telephone}</div>
+          </div>
 
           <a
             href="https://www.facebook.com/profile.php?id=61573744333759&mibextid=wwXIfr&rdid=AzR06cyUTr4HDgWK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15q2AUYVhT%2F%3Fmibextid%3DwwXIfr"
             target="_blank"
             className="facebook"
           >
-            FB {data.facebook}
+            <div className="contact-item-wrapper">
+              <div>FB</div> <div>{data.facebook}</div>
+            </div>
           </a>
-          <br />
+
           <a href={`https://www.instagram.com/${data.instagram}`} target="_blank" className="instagram">
-            IG {data.instagram}
+            <div className="contact-item-wrapper">
+              <div>IG</div>
+              <div>{data.instagram}</div>
+            </div>
           </a>
         </div>
       </div>

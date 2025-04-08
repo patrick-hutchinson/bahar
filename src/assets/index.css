@@ -173,6 +173,13 @@ footer a:visited {
   color: var(--beige);
 }
 
+.contact-item-wrapper {
+  display: grid;
+  grid-template-columns: 60px auto;
+  width: auto;
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
   :root {
     --beige: #f4f2ed;
