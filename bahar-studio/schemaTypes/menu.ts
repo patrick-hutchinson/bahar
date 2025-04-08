@@ -19,6 +19,16 @@ export const menu = defineType({
     }),
 
     defineField({
+      name: 'slug',
+      title: 'URL',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    }),
+
+    defineField({
       name: 'items',
       title: 'Items',
       type: 'array',

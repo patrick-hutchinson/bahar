@@ -9,6 +9,7 @@ import Layout from "./assets/components/Layout";
 import Landingpage from "./assets/pages/Landingpage/Landingpage";
 import Home from "./assets/pages/Home/Home";
 import Menu from "./assets/pages/Menu/Menu";
+import MenuSubpage from "./assets/pages/MenuSubpage/MenuSubpage";
 
 function App() {
   return (
@@ -18,8 +19,10 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="menu" element={<Menu />}></Route>
           </Route>
-          <Route path="menu" element={<Menu />} />
+
+          <Route path="menu/:slug" element={<MenuSubpage />}></Route>
         </Routes>
       </BrowserRouter>
     </DataProvider>

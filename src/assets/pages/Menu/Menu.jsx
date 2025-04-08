@@ -4,46 +4,51 @@ import { Document, Page } from "react-pdf";
 
 import sanityClient from "/src/client.js";
 
+import styles from "./Menu.module.css";
+
+import MaskArrow from "../../components/animations/MaskArrow";
+
 import { getFileSource } from "../../utils/getFileSource";
+import { Link } from "react-router-dom";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(false);
-  const [numPages, setNumPages] = useState(10);
+  const [menus, setMenu] = useState(false);
 
   useEffect(() => {
     sanityClient
       .fetch(
         `*[_type=="menu"]{
-        pdf
+        pdf,
+        title,
+        slug
       }`
       )
-      .then((data) => setMenu(data[0]))
+      .then((data) => setMenu(data))
       .catch(console.error);
   }, []);
 
-  if (!menu || !menu.pdf) return null;
+  if (!menus) return null;
 
-  console.log(getFileSource(menu.pdf).src);
-
-  function onDocumentLoadSuccess({ numPages }) {
-    console.log("loaded!");
-    setNumPages(numPages);
-  }
+  console.log(menus, "menus");
 
   return (
-    // <div>
-    //   <Document file="/assets/media/menu.pdf">
-    //     {Array.from(new Array(numPages), (el, index) => (
-    //       <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-    //     ))}
-    //   </Document>
-    // </div>
-    <div>
-      <iframe
-        src={`https://docs.google.com/viewer?url=${getFileSource(menu.pdf).src}&embedded=true`}
-        width="100%"
-        height="100%"
-      ></iframe>
+    <div className={styles["menu-wrapper"]}>
+      <h2 className="subheading">MENU</h2>
+
+      <ul className={styles.menu}>
+        {menus.map((menu) => {
+          return (
+            <Link to={`/menu/${menu.slug.current}`}>
+              <li className={styles["menu-section"]}>
+                <div className={styles["menu-title-wrapper"]}>
+                  <MaskArrow color="#d46943" />
+                  <h1>{menu.title}</h1>
+                </div>
+              </li>
+            </Link>
+          );
+        })}
+      </ul>
     </div>
   );
 }
