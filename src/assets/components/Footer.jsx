@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="contact">
           <div className="cell">CELL {data.telephone}</div>
-          <br />
+
           <a
             href="https://www.facebook.com/profile.php?id=61573744333759&mibextid=wwXIfr&rdid=AzR06cyUTr4HDgWK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15q2AUYVhT%2F%3Fmibextid%3DwwXIfr"
             target="_blank"
