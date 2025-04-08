@@ -12,10 +12,11 @@ import { DataContext } from "../context/DataContext";
 export default function Layout() {
   const navigate = useNavigate();
   const { isMobile } = useContext(DataContext);
-  const location = useLocation();
+
   const { language, setLanguage } = useContext(DataContext);
   const [menuItem, setMenuItem] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const transitionSpeed = { duration: 1, ease: [0.6, -0.05, 0.01, 0.99] };
 

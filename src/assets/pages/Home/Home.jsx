@@ -14,6 +14,10 @@ export default function Home() {
   const { language } = useContext(DataContext);
   const { data } = useContext(DataContext);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (!data) return <p>Loading...</p>;
 
   function findTranslation(object) {
@@ -22,9 +26,6 @@ export default function Home() {
     return translation.value;
   }
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <div>
       <section className={styles["banner-container"]}>

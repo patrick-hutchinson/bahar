@@ -34,6 +34,10 @@ export default function Header() {
     }
   }, [location, menuItem]); // Depend on location and menuItem
 
+  useEffect(() => {
+    console.log(page, "page");
+  }, [page]);
+
   function handleMenu(e) {
     console.log(e.currentTarget.getAttribute("tag"), "tag");
     const sectionTag = e.currentTarget.getAttribute("tag");
@@ -41,10 +45,6 @@ export default function Header() {
     setMenuItem(sectionTag);
     navigate("/"); // Navigate to homepage
   }
-
-  useEffect(() => {
-    console.log(page, "page");
-  }, [page]);
 
   return (
     <header>
