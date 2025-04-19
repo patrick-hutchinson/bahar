@@ -18,12 +18,20 @@ export default function Menu() {
     sanityClient
       .fetch(
         `*[_type=="menu"]{
-        pdf,
-        title,
-        slug
-      }`
+          pdf,
+          title,
+          slug
+        }`
       )
-      .then((data) => setMenu(data))
+      .then((data) => {
+        const customOrder = ["COLAZIONE", "APERITIVO", "DRINK LIST", "RISTORANTE", "CARTA DEI VINI"];
+
+        const sorted = data.sort((a, b) => {
+          return customOrder.indexOf(a.title.toUpperCase()) - customOrder.indexOf(b.title.toUpperCase());
+        });
+
+        setMenu(sorted);
+      })
       .catch(console.error);
   }, []);
 
